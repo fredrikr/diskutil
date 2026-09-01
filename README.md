@@ -24,10 +24,14 @@ When writing files to a d81 disk image, the program will use a custom interleave
 
 Some sample commands:
 
+Create disk image newdisk.d81, copy all files from the sound folder to the disk image as SEQ files, list the contents of the disk:
 ```
-diskutil.rb newdisk.d81 -writeseq -copyf1 sound/* -list (Create disk image newdisk.d81, copy all files from the sound folder to the disk image as SEQ files, list the contents of the disk.
+diskutil.rb newdisk.d81 -writeseq -copyf1 sound/* -list 
+```
 
-diskutil.rb olddisk.d81 newdisk.d81 -copy12 '*' (Load disk image olddisk.d81, create disk image newdisk.d81, copy all files from olddisk.d81 to newdisk.d81
+Load disk image olddisk.d81, create disk image newdisk.d81, copy all files from olddisk.d81 to newdisk.d81:
+```
+diskutil.rb olddisk.d81 newdisk.d81 -copy12 '*'
 ```
 
 This is the documentation which the program will print if you run it without arguments:

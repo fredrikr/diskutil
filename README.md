@@ -22,7 +22,7 @@ When writing files to a d81 disk image, the program will use a custom interleave
 * Can only copy PRG files and SEQ files. Other file types can exist on the disk images it operates on.
 * For safety reasons, it won't read or write files that start with . in the file system, and it won't copy files that contain / or \ from a disk image to the file system.
 
-Some sample commands:
+# Sample commands
 
 Create disk image newdisk.d81, copy all files from the sound folder to the disk image as SEQ files, list the contents of the disk:
 ```
@@ -33,6 +33,8 @@ Load disk image olddisk.d81, create disk image newdisk.d81, copy all files from 
 ```
 diskutil.rb olddisk.d81 newdisk.d81 -copy12 '*'
 ```
+
+# Documentation
 
 This is the documentation which the program will print if you run it without arguments:
 

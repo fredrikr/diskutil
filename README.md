@@ -1,21 +1,35 @@
 # diskutil
 A program to copy files from and to Commodore disk images
 
-USP: Can make files on physical disks on MEGA65 a lot faster to read.
+# Purpose
 
-Note: This program is written in Ruby. You'll need to have Ruby 3 installed on your computer to use it.
+An easy-to-use commandline tool for creating disk images, and for copying files to, 
+from and between disk images. Since it's a commandline tool, it can be incorporated in
+automated workflows, for anyone repeatedly building disk images.
+
+MEGA65 owners will appreciate that diskutil can utilize a special interleave scheme 
+for d81 disk images which, if the disk image is tranfered to a physical disk, 
+makes file reads about 5 times faster.
+
+**Note:** This program is written in Ruby. You'll need to have Ruby 3 installed on your computer to use it.
 
 # Features
 
-Diskutil is a commandline tool to manipulate d81 and d64 disk images. It supports:
+* Handles d64 and d81 disk images
 * Creating new disk images, as well as manipulating existing disk images
-* Copying files from and to disk images, using a highly optimized interleave scheme, making floppy reads ~5 times faster than normal
+* Copying files from and to disk images
 * While copying a file, it can add or remove two bytes at the start for the loading address
 * Listing the contents of a disk image
 * Changing the name and ID of a disk image
 * Deleting files from a disk image
 
-When writing files to a d81 disk image, the program will use a custom interleave scheme (described at (https://files.mega65.org?ar=c134d07e-01fc-4d03-b584-e2369722d203) ). If the disk image is copied to a physical diskette (using the BACKUP command, not file copying!), and the diskette is used with a MEGA65, this interleave scheme makes file reads about 5x faster than with the default interleave scheme. If you want to use the default interleave scheme anyway, specify -defint on the command line.
+When writing files to a d81 disk image, by default, the program will use a custom 
+interleave scheme (described at https://files.mega65.org?ar=c134d07e-01fc-4d03-b584-e2369722d203 ). 
+If the disk image is copied to a physical disk (using the MEGA65 `BACKUP` command, not file copying!),
+and the disk is used with a MEGA65, this interleave scheme makes file reads about 5x times faster 
+than with the default interleave scheme. If you want to use the default interleave scheme anyway, 
+specify -defint on the command line. If a disk is to be used with a 1581 drive, both 
+interleave schemes should provide the same speed.
 
 # Limitations
 
